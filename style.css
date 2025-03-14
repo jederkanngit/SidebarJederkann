@@ -18,10 +18,7 @@
     border: 1px;
 }
 
-.main-content {
-   transition: margin-left 0.5s;
-   margin-left: 80px;
-}
+
 
 .head {
     margin: 20px;
@@ -42,7 +39,7 @@
 .ssidebar {
     position: fixed;
     top: 0;
-    left: 0;
+    right: 0;
     height: 100vh;
     width: 80px;
     background: #12171e;
@@ -51,14 +48,20 @@
     z-index: 1000;
 }
 
-.ssidebar.active ~ .main-content {
-    margin-left: 250px;
-    transition: margin-left 0.5s;
-}
-
 .ssidebar.active {
     width: 250px;
 }
+
+.main-content {
+    transition: margin-left 0.5s;
+    margin-right: 80px;
+ }
+
+.ssidebar.active  .main-content {
+    margin-right: 250px;
+    transition: margin-right 0.5s;
+}
+
 
 .ssidebar #btn {
     position: absolute;
@@ -103,7 +106,7 @@
 .user p {
     color: #fff;
     opacity: 1;
-    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .bold {
@@ -159,10 +162,11 @@
 
 .ssidebar ul li .tooltip {
     position: absolute;
-    left: 125px;
+    right: 1px;
     top:50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+    background: #9b7419;
+    box-shadow: 0 0.5rem 0.8rem rgba(159, 26, 26, 0.8);
     border-radius: 0.6rem;
     padding: 0.4rem 1.2rem;
     line-height: 1.8rem;
@@ -182,4 +186,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    .ssidebar {
+        width: 60px;
+    }
+
+    .ssidebar.active {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+
+    body.sidebar-active .main-content {
+        margin-left: 200px;
+    }
 }
